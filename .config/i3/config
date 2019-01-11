@@ -184,7 +184,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ##self-added 
 #custom key bindings
-bindsym $mod+Shift+x exec ~/.config/i3/lock.sh 
+bindsym $mod+Shift+x exec --no-startup-id ~/.config/i3/lock.sh 
 bindsym $mod+d exec rofi -show run
 bindsym $mod+Shift+w exec rofi -show window
 bindsym $mod+Shift+s exec rofi -show ssh
@@ -217,7 +217,9 @@ exec --no-startup-id xautolock -time 10 -locker i3lock
 
 #set commands to always execute at restart of i3 and login
 exec_always --no-startup-id feh --bg-scale /opt/cc0-desktop-backgrounds-fog-7919.jpg
+#conky scripts
 
+exec --no-startup-id /home/spandan/.config/i3/conky.sh
 
 #colours of windows and tabs
 set $bg-color 	         #2f343f
