@@ -93,6 +93,6 @@ alias -- -="cd -"
 alias ls="ls --color=auto"
 export PATH=/opt/cuda/bin${PATH:+:${PATH}}
 #export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/cuda/lib64
-
+alias i3lock='~/.config/i3/lock.sh'
 export LD_LIBRARY_PATH=/opt/intel/lib:/usr/local/lib:/opt/intel/mkl/lib/intel64:/opt/intel/ipp/lib/intel64:/opt/cuda/lib64:$LD_LIBRARY_PATH
 

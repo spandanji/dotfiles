@@ -213,7 +213,7 @@ assign [class="Anydesk"] $ws8
 assign [class="discord"] $wsdisc
 #set commands to execute at login
 exec --no-startup-id compton -f
-exec --no-startup-id xautolock -time 10 -locker i3lock
+exec --no-startup-id xautolock -time 10 -locker i3lock 
 
 #set commands to always execute at restart of i3 and login
 exec_always --no-startup-id feh --bg-scale /opt/cc0-desktop-backgrounds-fog-7919.jpg
