@@ -1,0 +1,73 @@
+
+! URxvt
+
+! General settings
+!URxvt.font: xft:monospace:size=12
+!URxvt.font: xft: Monofur for Powerline:size=12
+URxvt.font: xft: FontAwesome:size=12
+URxvt.saveLines: 2000
+URxvt.scrollBar: False
+URxvt.scrollstyle: rxvt
+URxvt.termName: xterm-256color
+URxvt.urgentOnBell: True
+URxvt.cursorBlink: False
+!URxvt.letterSpace: 10
+
+! Base16 Monokai
+! Scheme: Wimer Hazenberg (http://www.monokai.nl)
+
+URxvt*background:                     #272822
+URxvt*foreground:                     #f8f8f2
+URxvt*cursorColor:                    #f8f8f2
+
+URxvt*scrollColor:                    #f8f8f2
+URxvt*highlightColor:                 #49483e
+URxvt*highlightTextColor:             #a59f85
+
+URxvt*color0:                         #272822
+URxvt*color1:                         #f92672
+URxvt*color2:                         #a6e22e
+URxvt*color3:                         #f4bf75
+URxvt*color4:                         #66d9ef
+URxvt*color5:                         #ae81ff
+URxvt*color6:                         #a1efe4
+URxvt*color7:                         #f8f8f2
+URxvt*color8:                         #75715e
+URxvt*color9:                         #f92672
+URxvt*color10:                        #a6e22e
+URxvt*color11:                        #f4bf75
+URxvt*color12:                        #66d9ef
+URxvt*color13:                        #ae81ff
+URxvt*color14:                        #a1efe4
+URxvt*color15:                        #f9f8f5
+
+URxvt*color16:                        #fd971f
+URxvt*color17:                        #cc6633
+URxvt*color18:                        #383830
+URxvt*color19:                        #49483e
+URxvt*color20:                        #a59f85
+URxvt*color21:                        #f5f4f1
+
+
+!Plugins
+URxvt.perl-ext-common: fullscreen,resize-font,keyboard-select
+URxvt.keysym.F11: perl:fullscreen:switch
+
+
+
+
+rofi.lines: 5
+rofi.eh: 2
+rofi.padding:20
+rofi.fullscreen:false 
+rofi.bw: 0
+rofi.separator-style: none
+rofi.hide-scrollbar: true
+
+!                  'background', 'border', 'separator'
+rofi.color-window: argb:c82d303b, #7c8389, #1d1f21
+! State:           'bg',     'fg',     'bgalt',  'hlbg',   'hlfg'
+rofi.color-normal: argb:031d1f21, #f3f4f5, argb:031d1f21, argb:031d1f21, #9575cd
+rofi.color-urgent: argb:031d1f21, #f3f4f5, argb:bc303541, argb:031d1f21, #9575cd
+rofi.color-active: argb:031d1f21, #f3f4f5, argb:031d1f21, argb:031d1f21, #9575cd
+rofi.font: System San Francisco Display 18
