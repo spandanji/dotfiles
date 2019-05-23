@@ -30,8 +30,8 @@ font pango:System San Francisco Display 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec konsole 
-
+bindsym $mod+Return exec qterminal 
+bindsym $mod+Shift+Return exec konsole
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -137,7 +137,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec ~/.config/i3/exit_menu.sh
+bindsym $mod+Shift+e exec --no-startup-id  ~/.config/i3/exit_menu.sh
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -189,13 +189,18 @@ bindsym $mod+d exec rofi -show run
 bindsym $mod+Shift+w exec rofi -show window
 bindsym $mod+Shift+s exec rofi -show ssh
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id /home/spandan/.config/i3/volup.sh #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id /home/spandan/.config/i3/voldown.sh #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id /home/spandan/.config/i3/mutetoggle.sh #pactl set-sink-mute 0 toggle # mute sound
+
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10 #python /home/spandan/.config/i3/brightnessup.py #xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10 #python /home/spandan/.config/i3/brightnessdown.py #xbacklight -dec 20 # decrease screen brightness
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -213,10 +218,12 @@ assign [class="Anydesk"] $ws8
 assign [class="discord"] $wsdisc
 #set commands to execute at login
 exec --no-startup-id compton -f
+exec --no-startup-id volnoti -a 0.6
+exec --no-startup-id nm-applet
 exec --no-startup-id xautolock -time 10 -locker i3lock 
 
 #set commands to always execute at restart of i3 and login
-exec_always --no-startup-id feh --bg-scale /opt/cc0-desktop-backgrounds-fog-7919.jpg
+exec_always --no-startup-id feh --bg-scale /home/spandan/.config/i3/back.jpg
 #conky scripts
 
 exec --no-startup-id /home/spandan/.config/i3/conky.sh
@@ -238,7 +245,8 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 #floating apps
 for_window[class="Conky"] floating enable
+for_window[class="Steam"] floating enable
 #i3 gaps
 for_window [class="^.*"] border pixel 2 
 gaps inner 5 
-gaps outer 5 
+gaps outer 2 
