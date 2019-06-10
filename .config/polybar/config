@@ -18,14 +18,65 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
+background = #AF2F343F 
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
-foreground-alt = #555
+foreground-alt = #ff0000
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
+
+[bar/ricedbar]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 27
+bottom = False
+;offset-x = 1%
+;offset-y = 1%
+radius = 1.0
+fixed-center = false
+
+background = #CC2F31A2
+foreground = #FFFFFF
+
+line-size = 3
+line-color = #f00
+
+border-size = 0 
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = fixed:pixelsize=10;1
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;1
+
+modules-left = bspwm i3
+modules-right = filesystem pulseaudio memory cpu wlan eth battery temperature date powermenu
+tray-position = right
+tray-padding = 0
+;tray-background = #0063ff
+
+;wm-restack = bspwm
+wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
 
 [bar/mybottombar]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -57,8 +108,8 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm i3
-modules-center = 
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-center = xwindow mpd 
+modules-right = filesystem xbacklight pulseaudio memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
 tray-padding = 0
@@ -80,7 +131,7 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label = %title%
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -239,7 +290,7 @@ ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-foreground = #c000fc
 
 [module/eth]
 type = internal/network
@@ -261,7 +312,8 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =
+date = " %d-%m-%Y"
+
 date-alt = " %Y-%m-%d"
 
 time = %H:%M
@@ -291,14 +343,14 @@ bar-volume-foreground-3 = #55aa55
 bar-volume-foreground-4 = #55aa55
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
+bar-volume-gradient = true
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground =  #555
 
 [module/alsa]
 type = internal/alsa
@@ -335,24 +387,24 @@ adapter = AC
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = #00b500
 
 format-discharging = <animation-discharging> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging-underline = #ffa0a0
 
 format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-prefix-foreground = #00ff00 
 format-full-underline = ${self.format-charging-underline}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-foreground = #00FF00 
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-foreground = #00FF00 
 animation-charging-framerate = 750
 
 animation-discharging-0 = 

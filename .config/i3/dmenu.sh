@@ -1,8 +1,8 @@
 #!/bin/bash
-
-FONT="Share Tech Mono 10"
-BACKGROUND_COLOR="#0c0c0c"
-FOREGROUND_COLOR="#888888"
+#-nb '#151515' -nf '#999999'
+FONT="Share Tech Mono 15"
+BACKGROUND_COLOR= "#151515"#0c0c0c"
+FOREGROUND_COLOR="##999999"#888888"
 BORDER_COLOR="#193b6c"
 
 rofi -show run -font "$FONT" -fg $FOREGROUND_COLOR -bg $BACKGROUND_COLOR -hlfg $BACKGROUND_COLOR -hlbg 
