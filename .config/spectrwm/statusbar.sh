@@ -1,6 +1,5 @@
 #!/bin/bash
-# minimal statusbar info : Spandan
-# github.com/spandanji
+# minimal statusbar info : Spandan # github.com/spandanji
 
 hddroot(){
 	hddroot="$(df -h | awk 'NR==4{print $3, $5}')"
@@ -29,10 +28,9 @@ cpu() {
   	prevtotal=$((a+b+c+previdle))
   	sleep 0.5
   	read cpu a b c idle rest < /proc/stat
-  	
+
 	total=$((a+b+c+idle))
  	cpu=$((100*( (total-prevtotal) - (idle-previdle) ) / (total-prevtotal) ))
-  	
 	echo -e "CPU: $cpu%"
 }
 
@@ -51,7 +49,6 @@ dte() {
   dte="$(date +"%A, %B %d ~ %l:%M:%S %p IST")"
   echo -e "$dte"
 }
-
 
 SLEEP_SEC=0.5
 while :; do
