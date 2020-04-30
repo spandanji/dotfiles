@@ -18,7 +18,9 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Plug 'HerringtonDarkholme/yats.vim' "for typescript
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
+"Plug 'vim-latex/vim-latex'
+Plug 'lervag/vimtex'
+Plug 'xuhdev/vim-latex-live-preview', {'for': 'tex' }
 call plug#end()
 
 " Parameters mostly boring(not so boring) stuff
@@ -73,7 +75,7 @@ endfunction
 
 " open NERDTree automatically
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * NERDTree | wincmd p
+"autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * call CheckTree()
 
 "
