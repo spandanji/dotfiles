@@ -189,3 +189,43 @@
   (evil-set-initial-state 'messages-buffer-mode 'normal)
   (evil-set-initial-state 'dashboard-mode 'normal))
 
+
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
+(use-package hydra)
+
+(defhydra hydra-text-scale (:timeout 4)
+  "scale text"
+  ("j" text-scale-increase "in")
+  ("k" text-scale-decrease "out")
+  ("f" nil "finished" :exit t))
+
+(utils/leader-keys
+  "ts" '(hydra-text-scale/body :which-key "scale text"))
+
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  ;; NOTE: Set this to the folder where you keep your Git repos!
+  (when (file-directory-p "~/Projects")
+    (setq projectile-project-search-path '("~/Projects")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
+
+(use-package magit
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+;; (use-package forge)
+
+(use-package org)
